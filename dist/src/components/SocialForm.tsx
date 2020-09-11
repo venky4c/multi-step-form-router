@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { useSignupForm } from "./SignupFormContext";
 
 type FormValues = {
   twitter: string;
@@ -10,7 +11,10 @@ type FormValues = {
 function SocialForm() {
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm<FormValues>();
+  const { social, setSocial } = useSignupForm();
+
   const onSubmit: SubmitHandler<FormValues> = (data) => {
+    setSocial(data);
     history.push("/review");
   };
   return (
@@ -18,7 +22,12 @@ function SocialForm() {
       <h2>How can we find you on Social?</h2>
       <p>
         <label htmlFor="twitter">Twitter</label>
-        <input type="text" name="twitter" ref={register({ required: true })} />
+        <input
+          type="text"
+          name="twitter"
+          defaultValue={social.twitter}
+          ref={register({ required: true })}
+        />
       </p>
       {errors.twitter && <p>Twitter is required</p>}
       <p>
@@ -26,6 +35,7 @@ function SocialForm() {
         <input
           type="text"
           name="facebook"
+          defaultValue={social.facebook}
           ref={register({
             required: true,
           })}

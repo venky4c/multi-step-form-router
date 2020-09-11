@@ -1,15 +1,42 @@
 import React from "react";
 
 import { NavLink } from "react-router-dom";
+import { useSignupForm } from "./SignupFormContext";
 
+function isEmpty(obj: {}) {
+  return Object.keys(obj).length === 0;
+}
 function StepLinks() {
+  const { profile, social } = useSignupForm;
+  // if profile object is empty
+  const isProfileDone: boolean = !isEmpty(profile);
+  const isSocialDone: boolean = !isEmpty(social);
+
   return (
     <div className="step-links">
       <NavLink to="/" exact>
-        Profile
+        {isProfileDone ? "❤️" : "🤍"} Profile <span />
       </NavLink>
-      <NavLink to="/social">Social</NavLink>
-      <NavLink to="/review">Review</NavLink>
+
+      {isProfileDone ? (
+        <NavLink to="/social">
+          {isSocialDone ? "❤️" : "🤍"} Social <span />
+        </NavLink>
+      ) : (
+        <a>
+          Social <span />
+        </a>
+      )}
+
+      {isProfileDone && isSocialDone ? (
+        <NavLink to="/review" style={{ float: "right" }}>
+          Review <span />
+        </NavLink>
+      ) : (
+        <a style={{ float: "right" }}>
+          Review <span />
+        </a>
+      )}
     </div>
   );
 }
