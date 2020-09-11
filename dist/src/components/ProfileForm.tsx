@@ -13,7 +13,7 @@ const ProfileForm: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<FormValues>();
   const history = useHistory();
   const { profile, setProfile } = useSignupForm();
-  //console.log(message);
+  
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     setProfile(data);

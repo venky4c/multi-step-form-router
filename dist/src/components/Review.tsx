@@ -1,9 +1,24 @@
 import React from "react";
+import { useSignupForm } from "./SignupFormContext";
+
 
 function Review() {
+  const {profile, social} = useSignupForm();
+
+  function handleSubmit(e: Event) {
+    e.preventDefault();
+    // To post the data to server
+    // const data = {...profile, ...social};
+    // axios.post('your-url');
+  }
   return (
-    <form>
-      Review
+    <form onSubmit={handleSubmit}>
+      <h2>Review all your info</h2>
+      <p><strong>Name</strong>: {profile.name}</p>
+      <p><strong>Email</strong>: {profile.email}</p>
+      <p><strong>Twitter</strong>: {social.twitter}</p>
+      <p><strong>Facebook</strong>: {social.facebook}</p>
+
       <input type="submit" value="Submit All Info" />
     </form>
   );
