@@ -15,6 +15,7 @@
   ````javascript
   isEmpty(obj){
         return (Object.keys(obj).length === 0) 
-      }````
+      }
+  ````
   does not work in TS scenario as we have already initialized the useState hook with some empty strings. Finding [alternate solution](https://github.com/venky4c/multi-step-form-router/blob/master/dist/src/components/SignupFormContext.tsx) was a good challenge.
 - Dark mode was implemented using an external library that requires [just one line of code](https://github.com/venky4c/multi-step-form-router/blob/master/dist/public/index.html)
