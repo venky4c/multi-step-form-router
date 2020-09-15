@@ -3,14 +3,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSignupForm } from "./SignupFormContext";
 
+// The js style to check if an object is empty does not work in TS
+// as we are passing empty values to profile and social in useState hooks
+// So we are checking if the value is truthy or falsy and then filtering it
+// if they have some legit values in it.
 function isEmpty(obj: {}) {
-  console.log(
-    "empty:",
-    //value
-    Object.values(obj).filter((value) => !!value).length === 0 &&
-      obj.constructor === Object,
-    obj
-  );
   return !Object.values(obj).filter((value) => !!value).length;
 }
 function StepLinks() {
