@@ -3,18 +3,9 @@ import SignupForm from "./SignupForm";
 
 // If you’re familiar with the context API before Hooks,
 // useContext(MyContext) is equivalent to static
-// contextType = MyContext in a class,
-// or to <MyContext.Consumer>.
-// useContext(MyContext) only lets you read the context and
-// subscribe to its changes. You still need
-// a <MyContext.Provider> above in the tree to provide the
-// value for this context.
-// interface ContextState {
-//   profile: {};
-//   setProfile: {};
-//   social: {};
-//   setSocial: {};
-// }
+// contextType = MyContext in a class, or to <MyContext.Consumer>.
+// useContext(MyContext) only LETS YOU READ THE 'CONTEXT' & SUBSCRIBE TO IT'S CHANGES.
+// You still need a <MyContext.Provider> above in the tree TO PROVIDE THE VALUE FOR THIS CONTEXT.
 
 interface IProfile {
   name: string;
@@ -32,7 +23,6 @@ type SignupFormContext = {
   setProfile: React.Dispatch<React.SetStateAction<IProfile>>;
   setSocial: React.Dispatch<React.SetStateAction<ISocial>>;
 };
-
 export const SignupFormContext = createContext<SignupFormContext>({
   profile: { name: "", email: "" },
   social: { twitter: "", facebook: "" },
@@ -48,7 +38,6 @@ export const SignupFormProvider: React.FC = ({ children }) => {
 
   return (
     <SignupFormContext.Provider
-      // value={{ profile, setProfile, social, setSocial }}
       value={{ profile, social, setProfile, setSocial }}
     >
       {children}

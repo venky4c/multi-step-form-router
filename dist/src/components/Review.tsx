@@ -6,9 +6,6 @@ function Review() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // To post the data to server
-    // const data = {...profile, ...social};
-    // axios.post('your-url');
   }
   return (
     <form onSubmit={handleSubmit}>

@@ -15,6 +15,8 @@ function SocialForm() {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     setSocial(data);
+    console.log("data: from social Form", data);
+
     history.push("/review");
   };
   return (
@@ -25,6 +27,7 @@ function SocialForm() {
         <input
           type="text"
           name="twitter"
+          id="twitter"
           defaultValue={social.twitter}
           ref={register({ required: true })}
         />
@@ -35,6 +38,7 @@ function SocialForm() {
         <input
           type="text"
           name="facebook"
+          id="facebook"
           defaultValue={social.facebook}
           ref={register({
             required: true,

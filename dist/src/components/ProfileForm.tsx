@@ -13,10 +13,10 @@ const ProfileForm: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<FormValues>();
   const history = useHistory();
   const { profile, setProfile } = useSignupForm();
-  
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     setProfile(data);
+    console.log("data: from profile form", data);
     history.push("/social");
   };
   return (
