@@ -4,13 +4,17 @@ import { NavLink } from "react-router-dom";
 import { useSignupForm } from "./SignupFormContext";
 
 function isEmpty(obj: {}) {
-  return Object.keys(obj).length === 0;
+  console.log("length ....:", Object.values(obj).length);
+  return Object.values(obj).length === 0;
 }
 function StepLinks() {
-  const { profile, social } = useSignupForm;
+  const { profile, social } = useSignupForm();
   // if profile object is empty
   const isProfileDone: boolean = !isEmpty(profile);
+  console.log("isProfileDone:", isProfileDone);
+
   const isSocialDone: boolean = !isEmpty(social);
+  console.log("isSocialDone:", isSocialDone);
 
   return (
     <div className="step-links">

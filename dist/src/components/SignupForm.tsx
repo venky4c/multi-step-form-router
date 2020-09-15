@@ -5,7 +5,7 @@ import Review from "./Review";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import StepLinks from "./StepLinks";
-import SignupFormProvider from "./SignupFormContext";
+import {SignupFormProvider} from "./SignupFormContext";
 
 function SignupForm() {
   return (
