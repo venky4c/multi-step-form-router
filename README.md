@@ -9,7 +9,7 @@
 
 - Implementing [React Context](https://github.com/venky4c/multi-step-form-router/blob/master/dist/src/components/SignupFormContext.tsx) using TS was a challenge due to the additional Types and Interfaces to be declared upfront
 - [Custom hook](https://github.com/venky4c/multi-step-form-router/blob/master/dist/src/components/ProfileForm.tsx) **useForm** from the *react-hook-form* library is used. This has many inbuilt capabilities for custom messages, validation and error handling.
-- useHistory hook from React Router is used to navigate between tabs
+- **useHistory** hook from *React Router* is used to navigate between tabs
 - Tabs are conditionally disabled if the user is not yet permitted to reach a tab
 - Checking if the object 
   ````javascript
